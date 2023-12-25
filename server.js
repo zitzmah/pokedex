@@ -1,11 +1,38 @@
 const express = require("express")
-const app = express()
+
 const Pokemon = require("./models/pokemon.js")
+const app = express()
+
+
+//MIDDLEWARE
+app.use(express.static("public"))
+app.use(express.urlencoded({extended: true}))
 
 //INDEX
 app.get("/", (req, res) => {
     res.render('index.ejs', { data: Pokemon })
 })
+
+//NEW
+app.get("/new", (req, res) => {
+    res.render("new.ejs")
+})
+
+//DELETE
+
+
+//UPDATE
+
+
+//CREATE
+app.post("/", (req, res)=>{
+    const body =req.body
+    Pokemon.push(body)
+    res.redirect("/")
+})
+
+//EDIT
+
 
 //SHOW
 app.get("/:id", (req, res) => {

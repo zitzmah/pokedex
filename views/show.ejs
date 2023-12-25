@@ -5,17 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon</title>
+    <%- include("./cssjs.ejs") %>
 </head>
 
 <body>
     <h1>Pokemon</h1>
+    <a href="/">Back to Index</a>
+    <a href="/new">Add a Pokemon</a>
     <h2>
-        <%= data.name %>
+        <% if (data && data.name) { %>
+            <%= data.name %>
+                <% } else { %>
+                    Pokemon not found
+                    <% } %>
     </h2>
-    <img src="<%=data.img %>">
-    <h3>stats</h3>
-    <ul>
-    </ul>
+    <% if (data && data.img) { %>
+        <img src="<%= data.img %>">
+        <% } %>
+            <h3>stats</h3>
 </body>
 
 </html>
