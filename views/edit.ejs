@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update <%= data.name %>
+    </title>
+    <%- include("./cssjs.ejs") %>
+</head>
+
+<body>
+    <h1>Update <%= data.name %>
+    </h1>
+    <form action="/" method="post">
+        <label>Name: <input type="text" name="name"></label>
+        <label>Image URL: <input type="text" name="img"></label>
+        <label>Type: <input type=" text" name="type"></label>
+        <label>HP: <input type="text" name="hp"></label>
+        <label>Attack: <input type=" text" name="attack"></label>
+        <label>Defense: <input type="text" name="defense"></label>
+        <label>Special Attack: <input type="text" name="spattack"></label>
+        <label>Special Defense: <input type="text" name="spdefense"> </label>
+        <label>Speed: <input type="text" name="speed"></label>
+        <input type="submit" value="Create Pokemon">
+    </form>
+</body>
+
+</html>
