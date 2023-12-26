@@ -18,6 +18,10 @@
                     <%= data[i].name %>
                 </li>
             </a>
+            <a href="/<%= data[i] %>/edit"><button>Edit</button>
+            <form action="/<%=i %>?_method=DELETE" method="post">
+                <input type="submit" value="Delete">
+            </form>
             <% } %>
     </ul>
 </body>
