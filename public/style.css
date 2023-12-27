@@ -1,4 +1,33 @@
-h1{
-    color: red;
-    
+header {
+    background-color: seagreen;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding 10px;
+}
+
+.pokemon-item {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    background-color: gainsboro;
+}
+
+.index-image {
+    width: 100%;
+    height: auto;
 }

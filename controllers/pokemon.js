@@ -35,30 +35,16 @@ router.post("/", (req, res) => {
 })
 
 //EDIT
-// router.get("/:id/edit", (req, res)=>{
-//     const id = req.params.id
-//     const pokemon = Pokemon[id]
-//     res.render("edit.ejs", {data: pokemon})
-// })
-
 router.get('/:id/edit', (req, res) => {
-    const id = req.params.id;
-    // Find the Pokemon in your data based on the ID
-    const selectedPokemon = Pokemon[id];
-
-    // Render the edit form and pass the selected Pokemon data
-    res.render("edit.ejs", { data: selectedPokemon })
-});
-
-router.get('/:id/edit', (req, res) => {
-const id = req.params.id
-const pokemon = pokemon[id]
-console.log("this is the pokemon" + pokemon)
-  });
+    res.render("show.ejs", { data: Pokemon[req.params.id] })
+})
 
 //SHOW
 router.get("/:id", (req, res) => {
     res.render("show.ejs", { data: Pokemon[req.params.id] })
+    // const id = req.params.id
+    // const pokemon = Pokemon[id]
+    // res.render("/show.ejs")
 })
 
 //EXPORT THE ROUTER

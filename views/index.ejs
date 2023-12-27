@@ -9,21 +9,29 @@
 </head>
 
 <body>
-    <h1>Pokedex</h1>
-    <a href="/new">Add a Pokemon</a>
-    <ul>
+    <header class="row">
+        <div class="title">
+            <h1>Pokedex</h1>
+        </div>
+        <div class="menu"><a href="/new">Add a Pokemon</a></div>
+    </header>
+
+    <div class="container">
         <% for (let i=0; i<data.length; i++){ %>
-            <a href="/<%=i%>">
-                <li>
-                    <%= data[i].name %>
-                </li>
-            </a>
-            <a href="/<%= data[i] %>/edit"><button>Edit</button>
-            <form action="/<%=i %>?_method=DELETE" method="post">
-                <input type="submit" value="Delete">
-            </form>
+            <div class="pokemon-item">
+                <a href="/<%=i%>">
+                    <img src="<%= data[i].img %>" class="index-image">
+                    <div class="index-pokemon-name">
+                        <%= data[i].name %>
+                    </div>
+                </a>
+                <a href="/<%= data[i] %>/edit" class="edit-button">Edit</a>
+                <form action="/<%=i %>?_method=DELETE" method="post">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
             <% } %>
-    </ul>
+    </div>
 </body>
 
 </html>
