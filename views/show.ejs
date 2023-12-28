@@ -9,12 +9,15 @@
 </head>
 
 <body>
-    
-    <div class="header">
-    <h1>Pokemon</h1>
-    <a href="/">Back to Index</a>
-    <a href="/new">Add a Pokemon</a>
-    </div>
+
+    <header>
+        <div class="title">
+            <h1>Pokemon</h1>
+        </div>
+        <div class="menu"><a href="/">Back to Index</a>
+            <a href="/new">Add a Pokemon</a>
+        </div>
+    </header>
     <h2>
         <% if (data && data.name) { %>
             <%= data.name %>
@@ -22,10 +25,49 @@
                     Pokemon not found
                     <% } %>
     </h2>
-    <% if (data && data.img) { %>
-        <img src="<%= data.img %>">
-        <% } %>
-            <h3>stats</h3>
+    <div class="show-container">
+        <% if (data && data.img) { %>
+            <img src="<%= data.img %>">
+            <% } %>
+                <div class="show-pokemon-info">
+                    <div>
+                        <h3>Stats:</h3>
+                        <ul>
+                            <% if (data && data.stats) { %>
+                                <li>HP: <%= data.stats.hp %>
+                                </li>
+                                <li>Attack: <%= data.stats.attack %>
+                                </li>
+                                <li>Defense: <%= data.stats.defense %>
+                                </li>
+                                <li>Special Attack: <%=data.stats.spattack %>
+                                </li>
+                                <li>Special Defense: <%=data.stats.spdefense %>
+                                </li>
+                                <li>Speed: <%=data.stats.speed%>
+                                </li>
+                                <% } else { %>
+                                    <li>Stats not available</li>
+                                    <% } %>
+                        </ul>
+                    </div>
+                    <div class="show-type">
+                        <h3>Type:</h3>
+                        <ul>
+                            <% if (data && data.type && data.type.length>0) { %>
+                                <% for (let i=0; i < data.type.length; i++){ %>
+                                    <li>
+                                        <%= data.type[i] %>
+                                    </li>
+                                    <% } %>
+                                        <% } else { %>
+                                            <li>Type information not available</li>
+                                            <% } %>
+                        </ul>
+                    </div>
+                </div>
+    </div>
+
 </body>
 
 </html>
