@@ -25,7 +25,7 @@
                         <%= data[i].name %>
                     </div>
                 </a>
-                <a href="/<%= data[i] %>/edit" class="edit-button">Edit</a>
+                <a href="/<%= i%>/edit" class="edit-button">Edit</a>
                 <form action="/<%=i %>?_method=DELETE" method="post">
                     <input type="submit" value="Delete">
                 </form>

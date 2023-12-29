@@ -21,6 +21,7 @@ router.delete("/:id", (req, res) => {
 
 //UPDATE
 router.put("/:id", (req, res) => {
+    console.log("Received PUT request:", req.params.id, req.body);
     const id = req.params.id
     const body = req.body
     Pokemon[id] = body
@@ -36,15 +37,12 @@ router.post("/", (req, res) => {
 
 //EDIT
 router.get('/:id/edit', (req, res) => {
-    res.render("show.ejs", { data: Pokemon[req.params.id] })
-})
+    res.render("edit.ejs", { data: Pokemon[req.params.id] })
+});
 
 //SHOW
 router.get("/:id", (req, res) => {
     res.render("show.ejs", { data: Pokemon[req.params.id] })
-    // const id = req.params.id
-    // const pokemon = Pokemon[id]
-    // res.render("/show.ejs")
 })
 
 //EXPORT THE ROUTER

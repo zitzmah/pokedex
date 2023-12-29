@@ -5,27 +5,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Update <% if (data && data.name) { %>
-        <%= data.name %>
-            <% } else { %>
-                Pokemon not found
-                <% } %>
+            <%= data.name %>
+                <% } else { %>
+                    Pokemon not found
+                    <% } %>
     </title>
     <%- include("./cssjs.ejs") %>
 </head>
 
 <body>
-    <!-- <h1>Update <%#= data.name %> -->
+    <h1>Update <%= data.name %>
     </h1>
-    <form action="/" method="post">
-        <label>Name: <input type="text" name="name"></label>
-        <label>Image URL: <input type="text" name="img"></label>
-        <label>Type: <input type=" text" name="type"></label>
-        <label>HP: <input type="text" name="hp"></label>
-        <label>Attack: <input type=" text" name="attack"></label>
-        <label>Defense: <input type="text" name="defense"></label>
-        <label>Special Attack: <input type="text" name="spattack"></label>
-        <label>Special Defense: <input type="text" name="spdefense"> </label>
-        <label>Speed: <input type="text" name="speed"></label>
+    <form action="/<%= data.id%>?_method=PUT" method="post">
+        <label>Name: <input type="text" name="name" value="<%= data.name %>" /></label>
+        <label>Image URL: <input type="text" name="img" value="<%=data.img%>" /></label>
+        <label>Type: <input type=" text" name="type" value="<%=data.type%>" /></label>
+        <label>HP: <input type="text" name="hp" value="<%=data.stats.hp%>" /></label>
+        <label>Attack: <input type=" text" name="attack" value="<%=data.stats.attack%>" /></label>
+        <label>Defense: <input type="text" name="defense" value="<%=data.stats.defense%>" /></label>
+        <label>Special Attack: <input type="text" name="spattack" value="<%=data.stats.spattack%>" /></label>
+        <label>Special Defense: <input type="text" name="spdefense" value="<%=data.stats.spdefense%>" /> </label>
+        <label>Speed: <input type="text" name="speed" value="<%=data.stats.speed%>" /></label>
         <input type="submit" value="Edit Pokemon">
     </form>
 </body>
